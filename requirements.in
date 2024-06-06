@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+psycopg2-binary
+pytest
+pydantic
+pydantic-settings
+asyncpg
+httpx
+black
+alembic
+sqlalchemy
+pytest-asyncio
+pytest-postgresql
