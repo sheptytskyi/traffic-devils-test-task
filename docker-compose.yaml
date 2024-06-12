@@ -1,0 +1,26 @@
+version: '3'
+
+
+services:
+  traffic_devils:
+    build: .
+    volumes:
+      - .:/traffic_devils
+    command: >
+      sh -c "uvicorn main.app:app --host 0.0.0.0 --port 8080 --reload"
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+    depends_on:
+      - traffic_devils_db
+
+
+  traffic_devils_db:
+    image: postgres:14.6-alpine
+    env_file:
+      - .env
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
