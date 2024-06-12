@@ -2,7 +2,6 @@ import enum
 import typing as t
 
 import sqlalchemy as sa
-from fastapi_users.db import SQLAlchemyBaseUserTable
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from database.db import Base

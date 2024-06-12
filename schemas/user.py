@@ -22,20 +22,13 @@ class CreateUpdateDictModel(BaseModel):
 
 
 class BaseUser(CreateUpdateDictModel):
-    """Base User model."""
-
     id: models.ID
     email: EmailStr
     is_active: bool = True
     is_verified: bool = False
     role: UserRoleEnum = UserRoleEnum.user
 
-    if schemas.PYDANTIC_V2:  # pragma: no cover
-        model_config = ConfigDict(from_attributes=True)  # type: ignore
-    else:  # pragma: no cover
-
-        class Config:
-            orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class UserRead(BaseUser):

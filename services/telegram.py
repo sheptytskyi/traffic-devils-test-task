@@ -8,6 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from sqlalchemy.orm import joinedload
 
+from exceptions.telegram import SendMessageError
 from schemas.telegram import TelegramMessageWithUser, TelegramResponseSuccess, TelegramResponseError, \
     TelegramResponse as TelegramResponseSchema
 from database.db import get_async_session
@@ -68,7 +69,7 @@ class TelegramManager:
             else:
                 response_data = TelegramResponseError(**response_data)
                 logger.error(response_data.description)
-                raise Exception(response_data.description)
+                raise SendMessageError(response_data.description)
 
     @staticmethod
     def __serializer(records: t.Sequence) -> list[TelegramResponseSchema]:

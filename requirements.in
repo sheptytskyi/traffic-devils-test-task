@@ -13,3 +13,4 @@ pytest-asyncio
 pytest-postgresql
 fastapi-users[sqlalchemy]
 pytz
+ruff

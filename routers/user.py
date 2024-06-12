@@ -26,7 +26,7 @@ async def create_manager(
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=str(e)
-        )
+        ) from e
 
 
 @router.post('/set_users_to_manager')
@@ -48,4 +48,4 @@ async def set_users_to_manager(
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=str(e)
-        )
+        ) from e

@@ -42,7 +42,7 @@ async def send_message(
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=str(e)
-        )
+        ) from e
 
 
 @router.get('/get-all-records', response_model=list[TelegramResponse])
@@ -57,4 +57,4 @@ async def get_all_records(
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=str(e)
-        )
+        ) from e

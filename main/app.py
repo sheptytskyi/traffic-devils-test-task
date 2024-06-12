@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from configuration.logger import logger
 from configuration.config import config
 from services.user import fastapi_users, auth_backend
 from schemas.user import UserCreate, UserUpdate, UserRead
@@ -47,7 +46,3 @@ app.include_router(
     prefix='/telegram',
     tags=['telegram']
 )
-
-# @app.on_event('startup')
-# async def startup():
-#     logger.debug('Application started')

@@ -46,17 +46,17 @@ class UserManager(IntegerIDMixin, CustomBaseUserManager):
     verification_token_secret = config.jwt_secret
 
     async def on_after_register(
-        self, user: User, request: t.Optional[Request] = None
+        self, user: User, request: Request | None = None
     ) -> None:
         logger.info(f"User {user.id} has registered.")
 
     async def on_after_forgot_password(
-        self, user: User, token: str, request: t.Optional[Request] = None
+        self, user: User, token: str, request: Request | None = None
     ) -> None:
         logger.info(f"User {user.id} has forgot their password. Reset token: {token}")
 
     async def on_after_request_verify(
-        self, user: User, token: str, request: t.Optional[Request] = None
+        self, user: User, token: str, request: Request | None = None
     ) -> None:
         logger.info(f"Verification requested for user {user.id}. Verification token: {token}")
 

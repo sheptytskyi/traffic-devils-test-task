@@ -6,11 +6,11 @@ from models.user import User
 class CustomBaseUserDatabase(BaseUserDatabase[models.UP, models.ID]):
     async def set_users_to_manager(self, users_id: list[int], manager_id: int) -> None:
         """Set users to manager"""
-        raise NotImplementedError()
+        raise NotImplementedError
 
     async def create_manager(self, user_id: int) -> None:
         """Create manager"""
-        raise NotImplementedError()
+        raise NotImplementedError
 
 
 class CustomBaseUserManager(BaseUserManager[User, int]):

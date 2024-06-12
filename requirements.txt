@@ -157,6 +157,8 @@ pyyaml==6.0.1
     # via uvicorn
 rich==13.7.1
     # via typer
+ruff==0.4.8
+    # via -r requirements.in
 shellingham==1.5.4
     # via typer
 sniffio==1.3.1
